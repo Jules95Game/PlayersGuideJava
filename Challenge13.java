@@ -13,27 +13,27 @@ public class Challenge13 {
     if (enemyX == 0 && enemyY == 0) {
       System.out.println("The enemy is here!");
     } else if (enemyX == 0 && enemyY > 0) {
-      PrintEnemyPosition("north");
+      printEnemyPosition("north");
     } else if (enemyX == 0 && enemyY < 0) {
-      PrintEnemyPosition("south");
+      printEnemyPosition("south");
     } else if (enemyX > 0 && enemyY == 0) {
-      PrintEnemyPosition("east");
+      printEnemyPosition("east");
     } else if (enemyX < 0 && enemyY == 0) {
-      PrintEnemyPosition("west");
+      printEnemyPosition("west");
     } else if (enemyX > 0 && enemyY > 0) {
-      PrintEnemyPosition("northeast");
+      printEnemyPosition("northeast");
     } else if (enemyX > 0 && enemyY < 0) {
-      PrintEnemyPosition("southeast");
+      printEnemyPosition("southeast");
     } else if (enemyX < 0 && enemyY > 0) {
-      PrintEnemyPosition("northwest");
+      printEnemyPosition("northwest");
     } else if (enemyX < 0 && enemyY < 0) {
-      PrintEnemyPosition("southwest");
+      printEnemyPosition("southwest");
     } else {
       System.out.println("The enemy's position is unknown.");
     }
   }
 
-  static void PrintEnemyPosition(String enemyPosition) {
+  static void printEnemyPosition(String enemyPosition) {
     System.out.println("The enemy is to the " + enemyPosition + "!");
   }
 }

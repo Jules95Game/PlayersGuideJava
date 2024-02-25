@@ -1,4 +1,4 @@
-import helper.parser.StringToInteger;
+import helpers.parser.StringToInteger;
 import java.util.Scanner;
 
 public class Challenge14 {
@@ -12,8 +12,7 @@ public class Challenge14 {
     System.out.println("7. Food Supplies");
     System.out.print("What number do you want to see the price of? ");
 
-    Scanner inputScanner = new Scanner(System.in);
-    int userChoice = StringToInteger.parseInt(inputScanner.nextLine());
+    int userChoice = StringToInteger.parseInRange(1, 7);
     System.out.println();
 
     switch (userChoice) {

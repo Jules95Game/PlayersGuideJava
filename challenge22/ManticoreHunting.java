@@ -19,9 +19,7 @@ public class ManticoreHunting {
 
     System.out.println("Player 2, it is your turn.");
     while (healthManticore > 0 && healthCity > 0) {
-      System.out.println("------------------------------------------------------------");
-      System.out.printf(
-          "STATUS: Round: %d City: %d/15 Manticore %d/10\n", turn, healthCity, healthManticore);
+      printStatus();
 
       int cannonPower = getCannonPower();
       System.out.printf("The cannon is expected to deal %d damage this round.\n", cannonPower);
@@ -30,9 +28,11 @@ public class ManticoreHunting {
       if (fireCannon(input.parseInRange(0, 100))) {
         healthManticore -= cannonPower;
       }
-      determineWin();
+      if (healthManticore > 0) {
+        healthCity--;
+      }
 
-      healthCity--;
+      determineWin();
       turn++;
     }
   }
@@ -41,6 +41,12 @@ public class ManticoreHunting {
     for (int line = 0; line < 50; line++) {
       System.out.println();
     }
+  }
+
+  private void printStatus() {
+    System.out.println("------------------------------------------------------------");
+    System.out.printf(
+        "STATUS: Round: %d City: %d/15 Manticore %d/10\n", turn, healthCity, healthManticore);
   }
 
   private int getCannonPower() {
@@ -74,7 +80,7 @@ public class ManticoreHunting {
     if (healthManticore < 1) {
       System.out.println("The Manticore has been destroyed! The city of Consolas has been saved!");
     }
-    if (healthCity < 2) {
+    if (healthCity < 1) {
       System.out.println("The Manticore devastates Consolas! The city of Consolas has Fallen!");
     }
   }
